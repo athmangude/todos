@@ -2,12 +2,12 @@
   "name": "todos",
   "version": "1.0.0",
   "description": "A todos app with React, TypeScript, Node and MongoDB",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "Athman Gude",
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/index.js\""
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",
