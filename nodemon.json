@@ -1,0 +1,7 @@
+{
+  "env": {
+    "MONGO_USER": "todosapp",
+    "MONGO_PASSWORD": "6KX3UgojUG0ZfmL2",
+    "MONGO_DB": "todos"
+  }
+}
