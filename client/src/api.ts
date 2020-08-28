@@ -3,15 +3,6 @@ import Axios from 'axios';
 
 const baseUrl: string = 'http://localhost:4000';
 
-export const getTodos = async (): Promise<AxiosResponse<ApiDataType>> => {
-  try {
-    const todos: AxiosResponse<ApiDataType> = await axios.get(`${baseUrl}/todos`);
-    return todos;
-  } catch (error) {
-    throw new Error(error);
-  }
-}
-
 export async function addTodo(formData: ITodo): Promise<AxiosResponse<ApiDataType>> {
   try {
     const todo: Omit<ITodo, '_id'> = {
@@ -27,12 +18,19 @@ export async function addTodo(formData: ITodo): Promise<AxiosResponse<ApiDataTyp
   }
 }
 
+export async function getTodos(): Promise<AxiosResponse<ApiDataType>> {
+  try {
+    const todos: AxiosResponse<ApiDataType> = await axios.get(`${baseUrl}/todos`);
+    return todos;
+  } catch (error) {
+    throw new Error(error);
+  }
+}
+
 export async function updateTodo(todo: ITodo): Promise<AxiosResponse<ApiDataType>> {
   // only update the status of the todo
   try {
-    const todoUpdate: Pick<ITodo, 'name', 'description', 'status'> = {
-      name: todo.name,
-      description: todo.description,
+    const todoUpdate: Pick<ITodo, 'status'> = {
       status: true,
     }
 
